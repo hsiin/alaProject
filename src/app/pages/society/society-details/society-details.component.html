@@ -1,0 +1,66 @@
+<nz-tabset nzCentered="true" nzSize="large">
+  <nz-tab nzTitle="Detail">
+    <div class="container">
+      <img src="./assets/images/1234.jpeg" class="image" alt="image">
+      <div class="details-Container">
+        <strong>Name:</strong>
+        <p>Name</p>
+      </div>
+      <div class="details-Container">
+        <strong>Email</strong>
+        <p>test.test@test.com</p>
+      </div>
+      <div class="details-Container">
+        <strong>Phone Number</strong>
+        <p>555555555</p>
+      </div>
+      <div class="details-Container">
+        <strong>Localisation</strong>
+        <p>Monastir Skanes</p>
+      </div>
+      <div class="details-Container">
+        <strong>Description</strong>
+        <p>testtesttes ttesttesttesttesttest testtesttestt esttesttesttesttest testtesttesttes ttesttesttesttest</p>
+      </div>
+    </div>
+  </nz-tab>
+  <nz-tab nzTitle="Announce">
+    <div class="filterButton">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input [(ngModel)]="filterSearch"
+               (ngModelChange)="searchData($event)" type="text" nz-input placeholder="search" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>
+    <nz-table #headerTable [nzData]="listOfData" [nzPageSize]="10" >
+      <thead>
+      <tr>
+        <th>id</th>
+        <th>Society</th>
+        <th>Announce Title</th>
+        <th>type</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let data of headerTable.data">
+        <td>{{ data.id }}</td>
+        <td>{{ data.society_Name }}</td>
+        <td>{{ data.title }}</td>
+        <td>{{data.type}}</td>
+        <td>
+          <a [routerLink]="['/sideNav/societyAnnounce']" [queryParams]="{id : data.id}">
+            <button nz-button nzType="dashed"  nzSize="default">Details</button>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </nz-table>
+  </nz-tab>
+</nz-tabset>
+
+
+
+

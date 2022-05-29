@@ -1,0 +1,15 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  height: 60%;
+}
+.text{
+  color: #244F8F;
+  font-size: 1.5vw;
+}
+input{
+  width: 40vh;
+}

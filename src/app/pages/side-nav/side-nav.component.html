@@ -1,0 +1,49 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="220px"
+            nzBreakpoint="md"
+            [(nzCollapsed)]="isCollapsed"
+            [nzTrigger]="null">
+    <div class="sidebar-logo">
+      <img src="../assets/images/Logo.png">
+      <h1>Dev Jobs</h1>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <li  nz-menu-item nzMatchRouter>
+        <mat-icon>supervisor_account</mat-icon>
+        <a routerLink="/sideNav/User">Developers</a>
+      </li>
+      <li  nz-menu-item nzMatchRouter>
+        <mat-icon>business</mat-icon>
+        <a routerLink="/sideNav/SocietyComponent">Society</a>
+      </li>
+      <li  nz-menu-item nzMatchRouter style="display: flex;flex-direction: row; align-items: center">
+        <mat-icon>report_problem</mat-icon>
+        <a routerLink="/sideNav/ReportsComponent">Reports</a>
+      </li>
+      <li  nz-menu-item nzMatchRouter style="display: flex;flex-direction: row; align-items: center">
+        <mat-icon>perm_identity</mat-icon>
+        <a routerLink="/sideNav/Profile">Profile</a>
+      </li>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+        <button nz-button nzType="primary" nzDanger routerLink="/">Log Out</button>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

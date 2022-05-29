@@ -1,0 +1,39 @@
+<div class="filterButton">
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input
+      [(ngModel)]="filterSearch"
+      (ngModelChange)="searchData($event)"
+      type="text"
+      nz-input
+      placeholder="search"
+    />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+</div>
+<nz-table #headerTable [nzData]="listOfData" [nzPageSize]="10">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of headerTable.data">
+      <td>{{ data.id }}</td>
+      <td>{{ data.name }}</td>
+      <td>{{ data.localisation }}</td>
+      <td>
+        <a
+          [routerLink]="['/sideNav/societyDetails']"
+          [queryParams]="{ id: data.id }"
+        >
+          <button nz-button nzType="dashed" nzSize="default">Details</button>
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>

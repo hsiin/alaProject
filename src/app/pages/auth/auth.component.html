@@ -1,0 +1,26 @@
+<div class="container">
+  <img src="assets/images/1234567.jpg" class="image">
+  <div class="card_logIn">
+    <form class="form"  nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Email">
+          <nz-input-group nzPrefixIcon="user">
+            <input formControlName="userName" nz-input placeholder="Email" type="email"  />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please Enter your Password">
+          <nz-input-group nzPrefixIcon="lock">
+            <input formControlName="password" nz-input type="password" placeholder="Password" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button routerLink="/sideNav/User" nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>

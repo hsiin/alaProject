@@ -1,0 +1,55 @@
+<div class="filterButton">
+  <nz-input-group [nzSuffix]="suffixIconSearch">
+    <input [(ngModel)]="filterSearch"
+           (ngModelChange)="searchData($event)" type="text" nz-input placeholder="search" />
+  </nz-input-group>
+  <ng-template #suffixIconSearch>
+    <i nz-icon nzType="search"></i>
+  </ng-template>
+</div>
+<nz-table #headerTable [nzData]="listOfData" [nzPageSize]="10" >
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>Society</th>
+    <th>Developer</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of headerTable.data">
+    <td>{{ data.id }}</td>
+    <td>{{ data.society_Name }}</td>
+    <td>{{ data.developer_Name }}</td>
+    <td>
+      <button nz-button (click)="showModal()"  nzType="dashed"  nzSize="default">
+          Details
+      </button>
+      <button nz-button nzType="dashed" nzDanger class="ban_Bottom" (click)="showDeleteConfirm()">Ban</button>
+    </td>
+  </tr>
+  </tbody>
+</nz-table>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="Report Detail"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading"
+>
+  <div *nzModalContent>
+    <div class="details-Container">
+      <strong>Subject:</strong>
+      <p>Subject</p>
+    </div>
+    <div class="details-Container">
+      <strong>Complaints Details:</strong>
+      <p>testtesttes ttesttesttesttesttest testtesttestt esttesttesttesttest testtesttesttes ttesttesttesttest</p>
+    </div>
+    <div class="details-Container">
+      <strong>Image:</strong>
+      <img src="./assets/images/1234.jpeg" class="image" alt="image">
+    </div>
+  </div>
+
+</nz-modal>

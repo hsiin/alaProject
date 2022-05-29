@@ -1,0 +1,15 @@
+button {
+  margin-right: 8px;
+  border: 1px dashed #244F8F;
+  color: #244F8F;
+}
+button :hover{
+  background-color: #244F8F;
+  color: black;
+}
+.filterButton{
+  width: 40vw;
+  margin: 10px 10px 40px;
+  display: flex;
+  border: 1px solid lightgray;
+}
